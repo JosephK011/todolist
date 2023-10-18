@@ -63,3 +63,11 @@ body
   cursor: pointer;
 }
 
+.example-custom-input{
+  color: white;
+  background-color: skyblue;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
