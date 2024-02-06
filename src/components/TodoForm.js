@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 export const TodoForm = ({addTodo}) => {
   const[value, setValue] = useState("")
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(value){
       addTodo(value)

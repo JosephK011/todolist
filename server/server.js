@@ -1,21 +1,20 @@
 const express = require('express');
-const mongodb = require('mongodb');
+require("dotenv").config();
+const { connectToMongoDB } = require("./database");
+
 const app = express();
-const port = 5000;
+app.use(express.json());
 
-const MongoClient = mongodb.MongoClient;
-const url = "mongodb://localhost:27017/mydb";
+const port = process.env.PORT || 5000;
 
-MongoClient.connect(url, function(err, db) {
-    if(err) throw err;
-    console.log("Database connected!");
-    db.close();
-})
+const router = require('./routes');
 
-app.get('/hello', (req, res) => {
-    res.status(200).json({ mssg: "hello world"});
-});
+app.use("/api", router);
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`)
-});
+async function startServer() {
+    await connectToMongoDB();
+    app.listen(port, () => {
+        console.log(`Server running at http://localhost:${port}`)
+    });
+}
+startServer();
