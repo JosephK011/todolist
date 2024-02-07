@@ -45,9 +45,28 @@ body
 
 .fa-trash{
   margin-left: .75rem;
+  transition: all 0.02s;
+  &:hover{
+    transform: scale(1.15);
+  }
 }
-.fa-pen-to-square{
+
+.fa-square{
   margin-left: .75rem;
+
+  transition: all 0.02s;
+  &:hover{
+    transform: scale(1.15);
+  }
+}
+.fa-square-check{
+  margin-left: .75rem;
+
+  transition: all 0.02s;
+  &:hover{
+    transform: scale(1.15);
+  }
+
 }
 
 .Title{
